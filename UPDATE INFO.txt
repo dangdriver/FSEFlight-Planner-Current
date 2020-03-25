@@ -1,3 +1,4 @@
+updated March 25 2020 fixed popup error on adding assignments
 Updated March 21 2020 for website changes
 updated March 1 2020 to work with changes on the website as well as fix group tab issues
 
