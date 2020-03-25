@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<Style id="Sea3_00">
+		<IconStyle><scale>.909999984502792</scale><Icon>icons\Sea3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="Small3_00">
+		<IconStyle><scale>.909999984502792</scale><Icon>icons\Small3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="Med4_01">
+		<IconStyle><scale>.960000014305115</scale><Icon>icons\Med4_01.png</Icon></IconStyle>
+		<LabelStyle><scale>.84</scale></LabelStyle>
+	</Style>
+	<Style id="Med4_10">
+		<IconStyle><scale>.960000014305115</scale><Icon>icons\Med4_10.png</Icon></IconStyle>
+		<LabelStyle><scale>.84</scale></LabelStyle>
+	</Style>
+	<Style id="Med3_00">
+		<IconStyle><scale>1.04000001549721</scale><Icon>icons\Med3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="Large3_00">
+		<IconStyle><scale>1.3</scale><Icon>icons\Large3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="SmallMil3_00">
+		<IconStyle><scale>.909999984502792</scale><Icon>icons\SmallMil3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="MedMil3_00">
+		<IconStyle><scale>1.04000001549721</scale><Icon>icons\MedMil3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="LargeMil3_00">
+		<IconStyle><scale>1.3</scale><Icon>icons\LargeMil3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="job-path0">
+		<LineStyle><color>ff7fffff</color><width>1.5</width></LineStyle>
+	</Style>
+	<Style id="job-path1">
+		<LineStyle><color>ff7fffff</color><width>2</width></LineStyle>
+	</Style>
+	<Style id="job-path2">
+		<LineStyle><color>ff7fffff</color><width>2.5</width></LineStyle>
+	</Style>
+	<Style id="job-path3">
+		<LineStyle><color>ff7fffff</color><width>3</width></LineStyle>
+	</Style>
+	<Style id="job-path4">
+		<LineStyle><color>ff7fffff</color><width>3.5</width></LineStyle>
+	</Style>
+	<Style id="job-path5">
+		<LineStyle><color>ff7fffff</color><width>4</width></LineStyle>
+	</Style>
+	<Style id="job-path6">
+		<LineStyle><color>ff7fffff</color><width>4.5</width></LineStyle>
+	</Style>
+	<Style id="job-path7">
+		<LineStyle><color>ff7fffff</color><width>5</width></LineStyle>
+	</Style>
+	<Style id="job-path8">
+		<LineStyle><color>ff7fffff</color><width>5.5</width></LineStyle>
+	</Style>
+	<Style id="job-path9">
+		<LineStyle><color>ff7fffff</color><width>6</width></LineStyle>
+	</Style>
+
+	<Style id="range-path-0">
+		<LineStyle><color>991010d0</color><width>5</width></LineStyle>
+	</Style>
+	<Style id="range-path-1">
+		<LineStyle><color>991010d0</color><width>5</width></LineStyle>
+	</Style>
+	<Style id="range-path-2">
+		<LineStyle><color>991010d0</color><width>5</width></LineStyle>
+	</Style>
+
+	<Folder>
+		<name>Airports</name>
+		<Placemark>
+			<name>3K3</name>
+			<description>
+<![CDATA[<a href=https://server.fseconomy.net/airport.jsp?icao=3K3&submit=true target=_top>Syracuse-Hamilton Co Mun, Syracuse, Kansas, United States</a><table><br><br><b>Job Arrivals from:</b><br><tr><a href=https://server.fseconomy.net/airport.jsp?icao=K61&submit=true target=_top>K61</a>: 1 K61 Passenger - 191 NM - $917</tr><br></table>]]></description>
+			<visibility>1</visibility>
+			<styleUrl>#Med4_10</styleUrl>
+			<LookAt>
+				<longitude>-101.746</longitude>
+				<latitude>37.9917</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<range>5000</range>
+				<altitudeMode>relativeToGround</altitudeMode>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<Point>
+				<coordinates>-101.746,37.9917,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>K61</name>
+			<description>
+<![CDATA[<a href=https://server.fseconomy.net/airport.jsp?icao=K61&submit=true target=_top>Moritz Meml, Beloit, Kansas, United States</a><table><br><br><b>Job Departures to:</b><br><tr><a href=https://server.fseconomy.net/airport.jsp?icao=3K3&submit=true target=_top>3K3</a>: 1 K61 Passenger - 191 NM - $917</tr><br></table>]]></description>
+			<visibility>1</visibility>
+			<styleUrl>#Med4_01</styleUrl>
+			<LookAt>
+				<longitude>-98.1288</longitude>
+				<latitude>39.4712</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<range>5000</range>
+				<altitudeMode>relativeToGround</altitudeMode>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<Point>
+				<coordinates>-98.1288,39.4712,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+
+	<Folder>
+		<name>Jobs</name>
+		<Placemark>
+			<name>3K3 --> K61</name>
+			<visibility>1</visibility>
+			<styleUrl>#job-path0</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-101.746,37.9917,0 -98.1288,39.4712,0
+				</coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+
+	<Folder>
+		<name>Ranges</name>
+	</Folder>
+
+</Document>
+</kml>

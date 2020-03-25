@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<Style id="Sea3_00">
+		<IconStyle><scale>.909999984502792</scale><Icon>icons\Sea3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="Small3_00">
+		<IconStyle><scale>.909999984502792</scale><Icon>icons\Small3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="Med3_00">
+		<IconStyle><scale>1.04000001549721</scale><Icon>icons\Med3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="Large3_00">
+		<IconStyle><scale>1.3</scale><Icon>icons\Large3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="SmallMil3_00">
+		<IconStyle><scale>.909999984502792</scale><Icon>icons\SmallMil3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="MedMil3_00">
+		<IconStyle><scale>1.04000001549721</scale><Icon>icons\MedMil3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="LargeMil3_00">
+		<IconStyle><scale>1.3</scale><Icon>icons\LargeMil3_00.png</Icon></IconStyle>
+		<LabelStyle><scale>.91</scale></LabelStyle>
+	</Style>
+	<Style id="job-path0">
+		<LineStyle><color>ff7fff7f</color><width>1.5</width></LineStyle>
+	</Style>
+	<Style id="job-path1">
+		<LineStyle><color>ff7fff7f</color><width>2</width></LineStyle>
+	</Style>
+	<Style id="job-path2">
+		<LineStyle><color>ff7fff7f</color><width>2.5</width></LineStyle>
+	</Style>
+	<Style id="job-path3">
+		<LineStyle><color>ff7fff7f</color><width>3</width></LineStyle>
+	</Style>
+	<Style id="job-path4">
+		<LineStyle><color>ff7fff7f</color><width>3.5</width></LineStyle>
+	</Style>
+	<Style id="job-path5">
+		<LineStyle><color>ff7fff7f</color><width>4</width></LineStyle>
+	</Style>
+	<Style id="job-path6">
+		<LineStyle><color>ff7fff7f</color><width>4.5</width></LineStyle>
+	</Style>
+	<Style id="job-path7">
+		<LineStyle><color>ff7fff7f</color><width>5</width></LineStyle>
+	</Style>
+	<Style id="job-path8">
+		<LineStyle><color>ff7fff7f</color><width>5.5</width></LineStyle>
+	</Style>
+	<Style id="job-path9">
+		<LineStyle><color>ff7fff7f</color><width>6</width></LineStyle>
+	</Style>
+
+	<Folder>
+		<name>Airports</name>
+	</Folder>
+
+	<Folder>
+		<name>Jobs</name>
+	</Folder>
+
+</Document>
+</kml>

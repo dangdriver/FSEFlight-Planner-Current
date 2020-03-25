@@ -1,0 +1,4 @@
+The FSE Flight Planner calls the following hosts and port numbers, which may be required information if you have a firewall blocking required areas...
+
+For FSEconomy, the program must be allowed to make Web calls to: (Port 81)
+    www.fseconomy.net

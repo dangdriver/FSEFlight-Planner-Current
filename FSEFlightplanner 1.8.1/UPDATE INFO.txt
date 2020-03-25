@@ -1,0 +1,29 @@
+Updated March 21 2020 for website changes
+updated March 1 2020 to work with changes on the website as well as fix group tab issues
+
+with the requirment changes to passwords in FSE special characters are required but soem do not work with the FSE flight planner
+
+passwords with # or ! seem to cause issues with logging in
+@ is known to work in passwords
+
+2019 changes
+
+File updated May 15th 2019 to use the new user key format of fse
+source cade obtained from Doug Brinklow (MBlazerGuy) exe file edited by dangdriver.
+all seems to work with old or new keys (limited testing)
+only file changed was the exe all others the same  excepted added  an edited by dangdriver to the about screen.
+doubtful I could make any functional changes to the code but wanted to keep this active on FSE.
+
+Make sure you link to google earth and that you have a user key on fse
+
+FYI my google Earth in windows 10 is located
+ C:\Program Files\Google\Google Earth Pro\client\googleearth.exe
+others may be different
+
+If you dont have a user key it should pop up the following instructions on getting one.
+
+ You have not generated your  FSEconomy User Access Key.This key is required for any FSEconomy User to access the XML Data Feeds.
+On the FSEconomy Web Site  menu,  Home, then click  Data Feeds , then click the  Reset button beside your User Name, then try running the  FSE Flight Planner  again.
+
+
+any comment or questions you can usualy find me around discord or twitch or in fse name on all three is dangdriver

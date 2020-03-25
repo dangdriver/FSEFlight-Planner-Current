@@ -1,0 +1,409 @@
+--------------
+Version 1.8 by Dangdriver and helped by others
+--------------
+Fixed for the changes to the main website 
+Fixed group tab issue.
+
+--------------
+Version v1.7 by dangdriver
+--------------
+Fixed to allow the new user key id length
+
+
+
+--------------
+Version v1.6.9
+--------------
+BUG FIXES:
+- A change to the FSEconomy Web Site caused the Flight planner to exclude finding any jobs expiring in less than 24 hours.  (Hours was changed to hrs, and Minutes was changes to mins)  The code had been updated to match.
+- The Assignments Tab previously broken in v1.6.8 has been fixed.
+- The code has been fixed for the MyFlight Tab, and Assignments tab where all jobs were reporting "Never" as the expiry date.
+- Added in code that converts special characters delimited by &# and ;.  (ie.  &#38; is ASC(38) which equals the & character.)
+ENHANCEMENTS:
+- By request, an option has been added to be able to prevent the Flight Planner from opening Google Earth.  (Select Options, and check the box: "No Google Earth")   This will be useful for anyone who just wants to perform the searches, and view the results table, without having Google Earth launch in the background.
+--------------
+Version v1.6.8
+--------------
+- KNOWN ISSUE:  The Assignments Tab is still not functional.  The page was redesigned, and it will require additional work to parse the information to build the results page under the Assignments tab with this changed information.  This update will have to wait until v1.6.9
+
+- Fixed the low level HTML request logic to retrieve the JSESSIONID variable from the cookie in the Response Header, where previously it was present within the HTML.  (Required to fix Sign On issue.)
+- Fixed a content search to update Group ID information.  A key search variable was changed from GroupId to Groupid.  (The Flight Planner would get stuck during the Sign On process, trying to update Group ID information where all the Group ID's were set to 0, and would not let you perform any new queries.)
+- The FBO For Sale page was redesigned, removing most of the information that use to be displayed.  Luckily, they have created a Data Feed now that can provide all of the FBO For Sale information.  The entire section of code was re-written to use and parse the Data Feed information, rather than parsing the Web Page.
+- Fixed the format of the URL variables used for performing AddToMyFlight, and AddToGroupAssignment functions due to a change in the URL's.
+- Fixed search on groups that you are a staff member of, for building the list of available groups that you can add flights to, due to a change in content on the main menu page.
+--------------
+Version v1.6.7
+--------------
+- Removed a logic check for adding jobs to MyFlight.  This logic check created a false-positive where a message box would appear stating that items could not be added.  I was unable to find an actual fix to this, as it looks like this is the same issue that causes the home page to fail loading, and v1.6.5 was released to perform a "double signin".  Therefore, the solution was to remove the logic check.  The only drawback to this solution is that if an action to add jobs to MyFlight actually fails because of bad communication, or because you're MyFlight limit has been reached, then this could throw the Flight Planner out of sync with FSEconomy, which could cause strange things to happen.  (Closing and re-opening the Flight Planner would resolve this, if it happens.)
+- Another issue, that there doesn't seem to be a woking solution for at the moment, is that when you make changes to your MyFlight window, by either putting items on Load, Hold or Cancelling some of them, the MyFlight listing goes blank.  When this happens, click on the refresh button in the bottom left, and the listing will re-appear.  (Also related to the same issue, because the Flight Planner use to receive the updated MyFlight page from this URL query, but now, like with all the other issues, it just receives the FSEconomy home page response instead.)
+--------------
+Version v1.6.6
+--------------
+BUG FIXES:
+ - Fixed how the Flight Planner retrieves the Groups that you are a member of, and how it discovers what FBO's belong to each group, so that all Group information is retrieved correctly, allowing functionality of the Group Assignments tab to be restored.
+ - Fix the FBO listing in the Airports tab so that it now updates correctly when you click on the different Groups that you are a member of.
+--------------
+Version v1.6.5
+--------------
+BUG FIXES:
+ - An unexpected change to the FSEconomy Web Site caused the Sign On's to fail.  For some reason, the JSESSION ID could no longer be obtained while performing the Sign On directly as the first call.  (Server 500 error response)
+To resolve the issue, an additional call at startup is now performed, to http://www.fseconomy.net:81 (defined in the Host and ServiceKey.ini file.  On the first call the JSESSION ID is obtained, and then the 2nd call to perform the Sign On is executed, then the 3rd call to retrieve the Data Feed information is made.
+--------------
+Version v1.6.4
+--------------
+BUG FIXES:
+ - Multiple changes to the GroupAssignment code was required due to changes in the Group Assignments page on the FSEconomy Web Site.  (Similar changes that were required to MyFlight in 1.6.3)
+--------------
+Version v1.6.3
+--------------
+BUG FIXES:
+ - Multiple changes to the MyFlight code was required due to changes in the MyFlight page on the FSEconomy Web Site.
+--------------
+Version v1.6.2
+--------------
+BUG FIXES:
+- A change was made to the main FSEConomy page that changed how the User Name looked in the HTML code.  Although it still looks the same when presented in the browser, the delimiters of the search for the existing user name on the page had to be changed for Sign On's to work again.
+ - A change was made to the FSEconomy FBO listing page that changed how the FBO's looked in the HTML code.  Again, it still looks the same when presented in the browser, but the delimiters of the search had to be changed for the Flight Planner to recognize what FBO's were owned by the client.  (In order to display owned FBO's in BLACK.)
+--------------
+Version v1.6.1
+--------------
+BUG FIXES:
+- The host name changed from http://www.fseconomy.net to http://www.fseconomy.net:81.  Multiple occurrences of the host name were still hard coded in the program.  These were fixed.
+- A bug was found in the host name check that caused the program to not recognize the host name to apply the jsessionid.  This prevented SignOn, and application functionality.  This was fixed.
+ENHANCEMENTS:
+- Updated the About Box to remove reference to the retired group, Niska Aviation.
+--------------
+Version v1.6.0
+--------------
+BUG FIXES:
+- The Flight Planner Sign On is no longer required to be case-sensitive.
+ENHANCEMENTS:
+- Removed time server checking
+- Removed Flight Planner server socket connection
+- Removed subscription key requirement
+- Removed message checking
+- Removed purchasing
+- Added new file: Host and ServiceKey.ini - This contains the FSEconomy HOST name, which can be changed if the URL ever changes again. It also contains an encrypted value which is read for the correct Service Key. If the Service key ever changes for any reason, a new key value may be generated and provided. (But hopefully this will not be required)
+- Long live the Flight Planner as a FREE product to the FSEconomy community!!!
+--------------
+Version v1.5.9
+--------------
+BUG FIXES:
+- FSEconomy has finally taken a great step forward, and moved to a new, and more reliable server.  With that, the URL has changed, and multiple programming changes were required to update the Flight Planner with the new URL.
+--------------
+Version v1.5.8
+--------------
+BUG FIXES:
+- If you sort any columns in reverse order, on the Query Results tab, My Flight tab, or Group Assignments tab, the information displaying on the Status line would not be showing the information from the correctly selected items.  Fixed.
+- A change to the FSEconomy Web site a while back added a separate Comment column on the Group Assignments page.  This broke the data parser under the Group Assignments tab.  This has now been fixed.
+--------------
+Version v1.5.7
+--------------
+BUG FIXES:
+- If you performed a search that created search diameter rings, the rings would display in the Group Assignments page.  This has been fixed.
+- When listing jobs in the Group Assignments page, if the jobs were Cargo jobs containing a comment, they would not display correctly.  Fixed.
+- It was previously possible to enter invalid filename characters when saving Plans.  This would cause a silent exception, not save your Plan, and corrupt your INI file upon exit.  Added code to prevent invalid filename characters from being entered.
+ENHANCEMENTS:
+- When displaying jobs with comments in the Group Assignments tab, the comments were displayed after the Commodity in Google Earth.  This has been moved to the end of the line instead.
+- In the Group Assignments tab, Comments are included in brackets, after the Cargo in the Cargo column. (Most times this field will be truncated off of the right side of the display, but if you click the Clipboard button, the full contents of the Cargo plus the Comment field are shown.
+- Now that comments have been added to the FSE MyFlights page:  Added Comments to the MyFlights display, clipboard, and Google Earth, in the same way they are displayed on the Group Assignments page.
+--------------
+Version v1.5.6
+--------------
+BUG FIXES:
+- Since the upgrade to the new XML feeds, the Niska Discounts have not been counted for Niska Aviation members.  This has been fixed.  All Niska members will now receive the Discounts automatically, when calculated in the purchasing screens.
+- A new method is being used to query FBO's that belong to a group.  Now, members without Staff access to a group will finally be able to see what FBO's are owned by the group.  Under the Airports Tab, click on the Update Groups List button, then select the group in the list, and all the FBO's owned by that group will be listed, and when performing queries, those FBO's will show up in Black, and you will have a better idea of where to fly, to maximize profit, when flying for a group.  Note: this still does not include FBO's with Rented Gates only.  This functionality does not exist for members without Staff access.  A request has been made in the Wish List forum.
+- Comments were not being read correctly in the Group Assignments tab.  This has been fixed.  Now, if you have Group Assignments, and some have comments, you can filter the Group Assignments by the different comments, making it easier to find specific jobs.
+--------------
+Version v1.5.5
+--------------
+BUG FIXES:
+- A change to the FSEconomy Web Site has changes the "title" of the main page.  The Flight Planner was confirming the page by checking for contents: >FSEconomy Terminal<.  A quick fix has been implemented to change this check to:  >FSEconomy<
+--------------
+Version v1.5.4
+--------------
+BUG FIXES:
+- There was a problem with variables not being initialized correctly with the subscription key, causing purchasing to fail in some cases where a previous key had expired.
+--------------
+Version v1.5.3
+--------------
+BUG FIXES:
+- There was a problem with code that creates the hash code used to uniquely identify the users PC, which caused the Flight Planner to crach on some Operating systems.  (Vista, and possibly earlier.)
+- Fixed an output log message to properly show up in a dialogue box, when a user has not initialized their User Key on FSEconomy, which is required to gain access to the new XLM data feeds.
+--------------
+Version v1.5.2
+--------------
+BUG FIXES:
+- There was a problem with the new Data Feeds XML parser causing it to find only every 2nd job available when searching the query results.
+--------------
+Version v1.5.1
+--------------
+ENHANCEMENTS:
+- On the MyFlight page, when you refresh while assignments are Enroute, the departing airport will be shown in Green, if all flights have been picked up.  It will show in yellow, if some jobs are being left behind.
+- Flights Enroute will be displayed with colon (:) indicators, to easily identify what jobs are Enroute, and to prevent you from being able to try and Cancel or Hold assignments that are Enroute.
+BUG FIXES:
+- Fixed users without staff access that were unable to view Group Assignment information.
+- Fixed the MyFlight page.  This would not have worked with users without staff access, and for users with Staff access, flights Enroute did not display.
+- Fixed the MyFlight status bar for displaying the information regardless whether or not you select jobs that are Loaded, On Hold or Enroute.
+--------------
+Version v1.5.0
+--------------
+ENHANCEMENTS:
+- The Flight Planner is now compliant with the new XML data feeds.
+- To be compliant with FSE XML data feeds, the Flight Planner can only request information from 100 FBO's per call.  (down from 250 previously)  Therefore, it will require more calls to perform larger queries.
+- Before performing a query, the button will tell you how many calls to the server will be required, to perform the query.  There is a maximum limit of 30 calls per query.
+- Created an FSE Flight Planner server using Socket connections which will be used to create additional functionality, such as automatically generating Trial Subscription keys, and storing the key on a server, incase you lose or delete your key.  More functions will be added in future releases.
+- There is no longer a need to request a free trial key.  The Flight Planner is free for everyone who hasn't tried it.  If the server sees that you have not used the Flight Planner before, then it will automatically send a signal that will generate the 8-day trial key for you.  With this release, everyone who already has subscriptions will also get an automatic 8 days added.
+- A copy of your subscription key is stored on the Flight Planner Server.  If you lose your key, or want to install FSE Flight Planner on a different PC, the subscription key will be updated automatically.
+- A hardware lock has been implemented so that you can only run the Flight Planner on up to 3 PC's with your user ID.  (This can be reset, in cases where hardware upgrades may cause this limit to be exceeded.)
+- Added functions to the Query Results Page allowing you to select and add Jobs to your MyFlight, or a Group.
+- Added functions to the MyFlight page, allowing you to Hold, Load or Cancel selected jobs.
+- Added the ability to select the "Fly For" link, from the MyFlight Page.  Plus, added a Checkbox where you can select to "Always Fly For".  How many times have you flown a mission, only to discover at the end of it, that you forgot to hit the Fly For link?  Now, with the Check box checked, your Flights will ALWAYS be flown for the group you have selected, when the MyFlight page is updated.  This option is saved in the Flight Plan (FSP) file, so you could have different Read-Only Flight Plans automatically flying for different groups.
+- Added a new tab:  Group Assignments.  This allows you to view all Unlocked Group Assignments.  The tab is like all the others, with columns you can sort.  Also from this tab, you can add Group Assignments to your MyFlight.  In addition, there is also a Filter available, to display Assignments based on Comments that have been added.  Jobs being displayed from the Group Assignments tab are using the new Green icons.
+- Re-wrote the time-synchronizing routines to use the newer standard of time server checking through port 123 using a well known set of proper time servers.  The application no longer has to check http://tf.nist.gov/tf-cgi/servers.cgi for a listing of valid time servers.  The Flight Planner will now allow your time to be out by as much as 23 hours, instead of 2.  This will resolve issues that some have had in the past, due to incorrectly set time-zones.
+- Implemented multi-Threading for all on-line activity which allows multiple calls to be performed at once, and prevents the application from appearing to be in a locked stated when waiting for responses.  When you click any button that performs on-line operations, the button will change to "In Progress", and clicking on the button at any time while the operation is in progress will abort the operation.  Clicking multiple buttons to perform multiple operations will properly queue them up, and perform the operations in sequence.
+- Changing to a new plan will clear the current results, and jump to the Queries tab.
+- The Flight Plan files (*.fsp) are now located in a Plans sub-folder.
+- Subscription details can be viewed from the Flight Planner menu.
+- Added links to the Flight Planner Forum, Niska Aviation, and Video Tutorials.
+- When you select items in the Query Results page, Google Earth is automatically updated, and zooms in to your selection.  Alternatively, you can turn this off in the Options, which will then cause a button to show up, allowing you to "Update Google Earth" when you click it, instead.
+- Added a checkbox to the top right.  When checked, the loaded Flight Plan will be treated as Read-Only.  Now, you can create the base Flight Plan query that you will frequently use, and mark it as read only, then you can use it and make changes knowing that the changes will not overwrite your file.
+- Changed all of the default multipliers to 1.0 to show the true values of jobs by comparison to a 1 PAX job travelling the same distance.  The multipliers can still be changed, but the defaults are set at 1.0, if you delete and recreate Plan files, or are running the Flight Planner from scratch.
+- Modified the Airport filters on the Queries page, so now you can search for airports that have unlimited local fuel, or Supplies & Fuel, or Building Supplies.
+BUG FIXES:
+- Changed the fonts used in the Purchase Validation screen to be more universal, as some PC's do not support the current fonts being used.
+- There are some minor variations that occur in the calculations of job Values due to the way FSEconomy works with floating points.  Therefore, the values displayed in Queries results and MyFlight are rounded and displayed within 5% accuracy increments.
+- Fix the Groups initialization routines.  Previously, group index information was being mixed up and incorrect values for jobs were being displayed, and incorrect FBO information would show up under the wrong groups.  Now, the correct values of jobs are calculated based on the multipliers that you select on under the Airports tab.
+- Fixed the format of the Airports.dat file to conform to FSE standards.  (Also fixed about 100 missing airport descriptions.)  This will allow the Flight Planner to provide additional airport information, such as:  What airports have unlimited local fuel, and/or unlimited supplies and/or unlimited building materials.  Note that the determination of whether or not an airport can have fuel is based on the "size" of the airport in the FSE database.  An airport with "unlimited fuel" may not have any fuel, if there are no FBO's at that location.  Always check the airport to confirm if there is fuel there.
+- Added additional information in the status lines for showing info of retrieved and selected items.
+- Created a ".Blank" read-only Plan that is displayed at the top of the Flight Plans list, used when you want to clear out all information to create a fresh query.
+- Add a File / Delete Selected Plan option in the menu, so you don't have to delete plans from Windows Explorer.
+
+--------------
+Version v1.4.4
+--------------
+ENHANCEMENTS:
+- Change the way the Value of jobs are calculated.  Previously, the value amount was a calculation of Pay / NM / Weight * 100.  Now, the value is a comparison to the value of an FSE Group Generated job carying one PAX weighing 77kg, the same distance.  For example, a Group Generated job for 1 PAX travelling 107 NM pays $854.  A Group Generated job for 2 PAX travelling 107 NM pays $1,387.  By comparison, the 2 PAX job has a value of 81% because 2 PAX, could pay $854 + 854 = $1,708.   (1387 / 1708 = 0.8120)  This will make it easier to determine if a jobs value is higher or lower than the standard Group generate 1 PAX job.
+- Created links for all ICAO's listed in Google Earth Airports for Assignments.  This makes it much easier to click and book a flight, clicking on the destination Airport to find the link for the Departing Airport, without having to locate the Departing airport in Google Earth first.
+- Enhance the Cargo Column so that it is also included as a sortable column by clicking on the 'Cargo' header.
+- Changed the Filter system to allow searches on Airports with Fuel, or Supplies, or Building Materials, and made the Query display more meaningful.  Instead of displaying 'Y' or '.', it will display A for Airstrip, S for Small Airport, L for Large Airport, C or M for Civilian or Military ('.' for both), F for fuel, S or B for Supplies or Building Materials.
+BUG FIXES:
+- Fixed a bug where the Sorting of the jobs by Value was being done AFTER the jobs were being displayed.  So the "Sort all jobs by best value" function has never correctly worked prior to this release!
+- Fixed a bug where the Expires time was not sorting correctly when the Expires time included a trailing astrisk.
+- When deleting Queries, if the number of queries went from greater than 7, to 7, the scroll bar on the left would dissappear, but the listing would not scroll up to display all items.  Fixed.
+--------------
+Version v1.4.3
+--------------
+- Fixed a bug that would cause the Planner to crash when Viewing Airports For Sale.  If an Airport Returns with 0 Gates available (which I didn't think was possible, but exists with CYRB for example), then the Planner would crash from a Divide By 0 error, when trying to calculate the number of days before supplies would run out.
+- Fixed a potential bug that would cause a "conversion to single" error when checking the Payment Logs for purchasing a subscription.
+--------------
+Version v1.4.2
+--------------
+ENHANCEMENTS:
+- Added a button above the Query Results, and MyFlight Results windows for copying the contents of the results to your Clipboard, with fields delimited by Tabs.  Perfect for pasting into a spreadsheet.  Great for planning a long trip, or having the text available for creating a great PiREP.
+--------------
+Version v1.4.1
+--------------
+ENHANCEMENTS:
+- (Missed this enhancement in 1.4.0.  Releasing in 1.4.1, rather than creating 1.6.0)
+- Added "For Sale" Group Box on the Airports Tab page.  This is a new unique feature of the Flight Planner that is more for Planning the future purchases of FBO's, rather than Planning Flights.  By clicking on the "Retrieve FBO's for sale" button, the Planner will query FSEconomy for a listing of all FBO's that are currently up for sale, and graphically display them all in Google Earth, including Sale Pricing information, and the number of estimated days left before an FBO is Forclosed by FSEconomy, if they have a negative supply balance.
+- The Foreclosure date on an FBO is a calculation based on supply rate of consumption, and can not be guaranteed accurate since it is unknown if resupply missions are currently taking place, to prevent its loss.
+- After FBO's are displayed, all the Owners currently selling FBO's are available in a Combo Box, so the results can be filtered by owner.
+- Once FBO's for Sale have been displayed, the results can be saved.  By saving the results, everytime you use the planner, when you perform a new search for FBO's that are for sale, the new query results will be compared to the saved query results, so that you can quickly see any New Airports that are for sale, or any airports that are no longer for sale.  If an airport has dissappeared from the For Sale List, and if the Supplies were in a negative balance, you can display these to see if someone bought the FBO, or if it was forclosed by FSEconomy and has now become available for someone to build on.  If it is estimated by the Planner that the FBO no longer for sale may have expired due to supplies reaching a negative 45 day balance, they will be highlighted.
+- FBO's for Sale also list the Collateral Value of the FBO.  The Collateral Value is the dollar sum of all the inventory added together, if it were to be sold, including building materials that would be obtained by tearing the FBO down.  If the Collateral value of an FBO exceeds the Sale Price, it will be highlighted with Green text.  (A quick buck, if you buy it and rip it down.  But you'll need a plane to transport all the goods to a location where you can sell them!)
+BUG FIXES:
+- If you run the Planner and the Purchasing screens show up because you're key has expired, hitting Cancel will exit the application properly.
+- Enabled the MyFlight List Box to allow scrolling of the list when it grows beyond the size of the box.
+
+==============
+Version v1.4.0
+==============
+ENHANCEMENTS:
+- Changed the location of the icons to a folder due to additional icons being added.  (The Flight Planner can now make use of 2268 icons.)
+- The added icons now allow the Flight Planner results to include indicators of the number of jobs departing and/or arriving at airports in search results.  Jobs that are set to depart (or "go") from a location are shown by a green line travelling clockwise around the icon.  Jobs that are set to arrive (or "stop") at a location are shown by a red line travelling counter-clockwise around the icon.  Each job adds 45 degrees to a line, giving a maximum job count of 8.  If there are 8 or more jobs arriving or departing from a location, then the line will be a full 360 degrees around the icon.
+- Redesigned the icons to look better, and more consistent.  Now there are 4 colors of icons.  Blue (normal), Black (FBO), Yellow (Selected) and Red (MyFlight).  There are also 7 types of icons as follows:  Sea, Small, SmallMil, Med, MedMil, Large & LargeMil.  Performing the math... 7 types times 4 colors times 9 variations of departing times 9 variations of arriving = 7x4x9x9 = 2268 icons!
+- Modified the Query Results so that selecting airports will automatically, and instantly be displayed in Google Earth.  Also, added a Clear Query Results Selection button.
+- Added a My Flight tab. Now, when you start the Planner, if you have jobs loaded into MyFlight, they will automatically be displayed in a separate KML file.  This allows you turn the display of MyFlight on and off separately from the Query Results, by checking the checkboxes in Google Earth.  The options for Retrieving and updating MyFlight information automatically can be set in the Options.
+- Enhanced purchasing options to make it easier for new potential customers to sample the Flight Planner for free, without having to go through the manual process of applying information into a generated key.id file.  Simply make a request for a free trial, and your User ID will be added to a list, with a given time-limit.  If you run the Planner without a license within the given time-limit, your free trial key will be automatically generated for you.
+- Made it easier to save new plan files, and to switch between multiple Plans.  For switching between multiple Plans, just select the Plan to switch to in the Drop-down Combo box displaying the current Plan.  To save a Plan under a new name, just type a new name in the same Drop-down Combo box, and click to perform the query.  (If "Save Without Asking" is checked, it will save under the new name at the time of the Query click.)
+
+BUG FIXES:
+- Fixed bugs in the Airports tab, so that the Planner will now keep the proper selections of you choose to display airports as FBO's from different groups.
+- Moved the Group and FBO airport information out of the Flight Plan files, and into a global file.  (A sweep of your existing Plan files will be performed the first time you run the Planner after upgrading, to ensure compatibility, so you don't have to create all your Plans again.)
+- Fixed the Loading of a Plan file to update the GUI properly in the Airports and Jobs tabs.
+
+--------------
+Version v1.2.3
+--------------
+- ISP Change!!!  Downloads for the FSE Flight Planner and the Announcement/Pricing information required to be read by the Planner for new subscription purchasing has changed from http://primus.ca to http://fseflightplanner.no-ip.ca/  Without applying this version, the Flight Planner will still work, but you will not receive new Announcements, and you will not have any purchasing options available after your current subscription expires.
+- Changed support e-mail from itsoutthere@primus.ca to FSEFlightPlanner@gmail.com.
+- Added code to the Announcement window to allow hyper-links in the Announcements to work.
+
+--------------
+Version v1.2.2
+--------------
+- Very minor adjustment.  In the previous release, a line was commented out that stopped the informational status line from displaying how many days you have left with your current subscription key.  This has been corrected, so you will see how many days before your key expires, when you start the Planner.
+
+--------------
+Version v1.2.1
+--------------
+- Fixed an issue where the bearing to an airport would not work if the airport had fewer than 4 characters in the ICAO.
+- Fixed the shrinking window problem.  If you find the FSE Planner window too small, and text is being cut-off at the edges, you can now change the default size of the Flight Planner window in the Change Options window.
+- Fixed an issue where if a job was found in multiple queries, that the same job would be listed multiple times in the query results.
+- Removed a call to the MyFlight page at start-up.  (This was left in my mistake for a future enhancement.  It calls the MyFlight page, which it should not do.  In a future version, the call will be through the proper method of a call to an XML feed.)
+
+==============
+Version v1.2.0
+==============
+Notice:  There is no v1.1.0.  Odd numbered minor releases (1.1.0, 1.3.0, 1.5.0 etc) are for Beta releases.  The final releases will then be even numbers.
+
+ENHANCEMENTS:
+- Added on the Queries page, option to display only new jobs, or partialy flown jobs, or both.  (Partially flown jobs are defined as jobs where the current Location of the job is different than the From location.)
+- Added on the Queries page, option to show only jobs travelling in a specific direction, plus or minus a specified number of degrees.  The specified direction can be an absolute value from 0 to 359 degrees, or it can be an Airport ICAO.
+- Added a function that counts the number of jobs travelling along each path.  When displayed, the thickness of the path lines will be thicker for paths that have more jobs.  The path width is calculated from the last number of jobs, to the most number of jobs, as defined in the new min/max fields defined in the Options.
+- Added new tab: Query Results.  Now, when you perform a query that is retrieving jobs, when the results are displayed, the Query Results tab automatically gets selected, and all jobs found are displayed.  You can then sort the list in Ascending or Descending order, by clicking any of the column headers.  You can select jobs in the Query Results listing just like you do in Windows Explorer.  Holding Control will select multiple lines.  Holding Shift will select a Range of lines.  After selecting, you can click on the Display Selected button, to see the selected items highlighted in Google Earth.
+
+BUG FIXES:
+- Fix the retrieval filter to retrieve jobs with a value of 0.  Group assignments created for fuel and supply transfers were not previously being retrieved.  The only jobs not retrieved are system jobs, where the Commodities field returns a Null value.
+- Fixed a bug in the purchasing options where proper time was not added to a subscription key, if you already had a subscription key that had expired.  Instead of adding the time to the expiration date/time of the key, it will now add the time properly, to either the current time, or the end of a free period if one is in effect.
+- Fixed a small calculating bug where if you were selecting flights from an area, to an area, the range of the To area is defined now as "<=" instead of "<".  This bug was discovered by a client wanting to search for flights going from an area, to a specific airport, and by entering, for example, "Traveling to within 0 NM of KPDX", there were no results.
+
+---------------
+Version v1.0.12
+---------------
+- Fixed a situation where the application would sometimes open off-screen.  Now, when the Planner starts, the current window location is checked.  First, it is determined what screen the Planner is on (if there are multiple screens)  Second, if any part of the Planner is beyond the boundaries of the display, it is repositioned.  If it is completely off-screen, then it is repositioned within the boundaries of the Primary display.
+- Added code to prevent with Planner window from shrinking, when minimized, and restored, seen on some systems.
+
+---------------
+Version v1.0.11
+---------------
+- The Purchasing screens stopped working because the FSE Flight Planner was no longer able to check the users Personal Balance, because the FSE Web Site implemented a change that changed the wording of "Personal Balance", to "Cash Balance".  All references within the FSE Flight Planner of the wording Personal Balance, have been changed to Cash Balance, to match.
+
+---------------
+Version v1.0.10
+---------------
+- Changed version number scheme for Major & Minor (bug fix) releases.
+- Added debug code into the TimeServer checking routines to troubleshoot a problem being reported where the user is always receive a response that the time on his PC is out of sync by more than 2 hours.
+
+-------------
+Version v1.09
+-------------
+- Fixed the Time Server check routines.  Previously hardcoded IP's caused the planner to time-out on the first few checks, causing the planner to take a long time to start up.  Now, the planner will check the official Web Page for a listing of valid IP's that host NIST time servers.  The first time you run the planner, it will take about 2 minutes to build the list, checking all available IP's for valid Time Server Responses.  It will then sort the IP's in order of fastest response, and save the list to a file.  After the listing of IP's is created, Time Server checks will be much faster.  If a Time Server fails to respond 3 checks in a row, it will be removed from the list.  If the list gets too small, it will be rebuilt.
+- Slight improvement to the Icon graphics.  All Icons have been replaced with higher resolution 96x96 pixel images.
+- Fixed "on-top" parameter, so the Planner will no longer remain on top of other windows before performing a query, if the On Top option is deselected in the options.
+
+-------------
+Version v1.08
+-------------
+- Fixed a bug where the appropriate sets of FBO's were not displaying (or undisplaying), when toggling the option under the Airports tab for displaying ALL FBO's for selected groups.
+- Changed the display in the Google Earth pop-ups so that all jobs arriving and departing are now showing the lines sorted alphabetically.
+- Added to the Debug mode where it will also output the Key file information for playback operations to troubleshoot problems.  (Note, key is double encrypted so it is save to send to Niska in an e-mail.)
+
+-------------
+Version v1.07
+-------------
+- Fixed the routine that when it reports an error and is supposed to check 3 times, it will not hang.  It will try 3 times, and abort the process, without the program exiting.  A previous issue was discovered that causes an error in downloading when the Group shows up, but you have not yet accepted the invitation to that group.  When the errors occur now, they will try 3 times and continue, then display a message stating that you may have pending invitations that you should accept or decline.
+- Fixed new bug created in 1.06 where 5 variables were accidentally being converted from Single Precision variables, into Rounded Integers, cause improper behaviour in quiries traveling from one Airport, to a specified distance of another airport.
+- A DEBUG option has been programmed into the Planner.  To Activate DEBUG, create a file within the Flight Planner folder called "debugon" (no extension).  If the Planner detects the presence of this file when it is run, then the Debug flag will be on, and all URL calls made, and all HTML received, will be written to a file called Output.log.  Passwords will be removed before being written to this file so that it will be save to ZIP and e-mail for troubleshooting purposes.  The INI file contents (without the password), and loaded Planner (.fsp) files will also be written to the OutputLog.
+- AMENDMENT:  Added a Red identifier on the Queries page that displays if there is additional filtering being applied in the Airports tab, and/or the Jobs tab.
+
+-------------
+Version v1.06
+-------------
+- The Encryption and Decryption routines were re-written again changing the CRC from an XOR checking system, to an adding checking system using value digits converted to text.
+- Added logic to the start of the program so that if it detects the existance of an INI file, and if the INI file is from a previous version, the there will be a pop-up message, and the planner will delete the INI, rename the old key.id to prevent cross-contamination from previous versions, which causes problems.
+- Fixed a bug reported in the Airports tab where the Group boxes that were checked were not reflecting the FBO's being filtered in the searches.
+- Multiple cosmetic fixes with some window borders, and proper scaling of windows and images that were not sizing correctly for some users.
+- Fixed the FBO retrieval, where FBO data was beign retrieved "always", then "never" was selected.
+
+-------------
+Version v1.05
+-------------
+- Note this version was never released...
+* * * * * * * * * * * * * *
+* * * IMPORTANT NOTE  * * *
+* * * * * * * * * * * * * *
+- A bug was found with the encryption/decryption routines that was occuring on some 64-bit systems.  To correct this serious bug, the routines were re-written, and therefore previous versions, including purchase keys and previous payment information, is no longer compatible with the current version.
+When you run this version, if you previously ran an older version, your INI file will be deleted, and your MyPlan.fsp file will be deleted, and your key.id file will be renamed to key_old.id (if it exists.)
+Luckily, there have been only 12 people who have purchased licenses due to the FREE Preview weeks.  Everyone will receive FULL REFUNDS, and will be require to re-do their purchases.
+- Adjustment to the Sign In logic to follow the same standards as the FSEconomy Web Site.  The User Name is no longer case sensitive.
+- Add additional logic to the purchasing screens for when a key.id file is corrupted.
+
+-------------
+Version v1.04
+-------------
+- Minor fix with Group Names not being displayed correctly under the Airports tab, if the name contained an apostrophy (') character.
+
+-------------
+Version v1.03
+-------------
+- Fixed a problem with the purchasing screen where the buttons were being re-created in an infinite loop causing an exception.  Due to this required fix, there will be a message posted for the next time users use the planner, to make sure everyone knows that the version must be upgraded to be able to purchase a key successfully at the end of the free period.
+
+-------------
+Version v1.02
+-------------
+- * * * NOTE * * * - Updating to this version from previous versions will delete the existing INI file, and MyPlan.fsp file.  You will have to Sign On manually again, one time, and update personal Options that you may have changed.  If you wish to keep your MyPlan.fsp file, then before upgrading, save it under a different name.  It should still work, but after loading, go to the Airports tab, and click the Update Groups List button.
+- Added additional "Airport Group" which contains a listing of FBO's personally owned.  The new Group will always show at the top, and is the UserName, surrounded by double quotes.  If no personal FBO's are found, then the listing will be blank.
+
+-------------
+Version v1.01
+-------------
+- Fixed the planner to work for pilots who are not members of any Groups.
+- Fixed a situation with multiple queries where all airports would sometimes be displayed within a perimeter, where "show empty" was not selected.
+
+------------
+Version v1.0
+------------
+- Added OK/Cancel buttons to the options form.
+- Fixed a spelling error in the purchasing screen.
+
+-----------------
+Version Beta v0.5
+-----------------
+- Completed modifications to the Airports tab functions, allowing the user to filter selections further so that only jobs going to or from selection FBO's within groups will be selected, or jobs going to and from FBO's will be selected, so the planner will never find a job outside of FBO locations.
+- Incorporated all Airports selection items into the planner file, instead of global planner settings.
+- Created option to bypass the "Save Planner" screen each time, if auto saving is selected.  This can be turned off by selecting to "Save as", and can be skipped with the option to "Exit without saving".
+- Created a new option to allow simultanious changes to all existing queries.  Update "All" button.  Will scan all queries, and for only the fields that have changed on the screen, the values will be update for all matching queries.  Applies to any fields on the screen.
+- Fixed a bug that was causing the value of jobs to and from Niska FBO's to be miscalculated.
+- Fixed a bug that caused Google Earth to zoom in too close to an airport when displaying all airports within 0 NM was selected.
+- Enabled the Enter key to select default buttons.  (Sign On screen improvement)
+- Removed all logic that limited usage for Niska non-paying members.  All users of the tool must now pay, but Niska Members are provided with a discount based on the amount of money they've earned for the company.
+- The e-mail address "itsoutthere@primus.ca" as well as the Discount information is all controlled remotely, with the pricing information so that they can be changed at anytime without the user having to download a new copy of the planner.
+- Completed modifications to the Jobs tab that allow users to increase probability of selecting jobs prefixed by specific characters.
+- Added options to exclusively select assignments to and from airports belonging to specific groups.
+- Changes method of scanning for previous payments.  Personal payment logs are scanned instead of company logs.  Comments are included with all payments with encrypted payment information (timestamp, UID, amount.) to prevent forging of payments.  These comments would also act as proof of purchase receipts in the case of refunds.
+
+
+--------------------------------------------
+Version Alpha v0.3.2a SE   (special edition)
+--------------------------------------------
+- Fixed a bug that was checking for the +90 day restriction after time was applied, which made it possible in some instances to have your subscription exceed 90 days.
+- Adding logic to read Airports belonging to subscribed groups so they display differently and can have value factors applied to "maximize business for the group".
+- Added a new form for updating Planner Options rather than have all the options in the Menu items.
+- Added more options for changing default icons and line sizes within Google Earth.
+- Completed the Airports Tab.  Refine searches by giving higher percentage to the value of jobs to and from specific group FBO's.
+- The Airport Pop-ups in Google Earth now contain clickable links to be able to get assignments.  (You have to log in manually from within the window in Google Earth on the first query to be able to select assignments.  As long as the Google Earth session stays active, you'll stay loggen in for selecting subsequent queries.
+- Add additional tool tips, and updated outdated tool tip options due to changes in previous versions.
+
+
+--------------------------------------------
+Version Alpha v0.3.1a SE   (special edition)
+--------------------------------------------
+- Completed purchasing logic and key generation code.
+- Special edition because this version is pointing to a different, temporary URL that is reading a different
+    set of announcements, and pricing information, for testing the purchasing options.
+    Any purchases completed while this version is in effect, will be 100% refunded.
+
+
+---------------------
+Version Alpha v0.3.1a
+---------------------
+- Fixed the parsing of HTML which validates Niska Aviation member status, as it was not working for some users.
+
+
+-------------------
+Version Alpha v0.3a
+-------------------
+- First public release.
+- Airport Tab items are none functional.
+- All other Tabs are currently empty, except for the Queries tab.
